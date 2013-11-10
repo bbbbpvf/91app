@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>coverlist</title>
+	<script type="text/javascript" src="coverlist.js"></script>
+	<script type="text/javascript" src="js/mootools.js"></script>
+	<script type="text/javascript" src="js/calendar.js"></script>
+	<script type="text/javascript">		
+		window.addEvent('domready', function() { 
+			myCal1 = new Calendar({ date1: 'Y-m-d', date2: 'Y-m-d' });
+			myCal2 = new Calendar({ date: 'Y-m-d'});
+		});
+	</script>
+	
+	<link rel="stylesheet" type="text/css" href="css/iframe.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/calendar.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/dashboard.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/i-heart-ny.css" media="screen" />
+</head>
+
+<BODY>
+
+	</p>
+
+	<form>
+		<fieldset>
+			<legend>选择日期</legend>
+			<div>
+			<label for="date1">开始日期</label>
+			<input id="date1" name="date1" type="text" />
+			</div>
+			<div>
+			<label for="date2">结束日期</label>
+			<input id="date2" name="date2" type="text" />
+			</div>
+			<div>
+			<input type="button" name="submit" value="查询" onclick="getcoverlist()"/>
+			</div>
+		</fieldset>
+		
+	</form>
+	
+	<p>
+	<div id="coverlist"></div>
+	<div id="addcover"  style="display:none;">
+		<form>
+		<fieldset>
+			<legend>选择日期</legend>
+			<div style="display:none;">
+			<label for="coverid">id</label>
+			<input id="coverid" name="coverid" type="text" />
+			</div>
+			<div>
+			<label for="date">Date</label>
+			<input id="date" name="date" type="text" />
+			</div>
+			<div>
+			<label for="title">Title</label>
+			<input id="title" name="title" type="text" />
+			</div>
+			<div>
+			<label for="subtitle">SubTitle</label>
+			<input id="subtitle" name="subtitle" type="text" />
+			</div>
+			<div>
+			<label for="photo">Photo</label>
+			<input id="photo" name="photo" type="text" />
+			<input type="button" name="upload" value="上传" onclick="showuploaddlg()"/>
+			</div>
+			<div>
+			<input type="button" name="submit" value="提交" onclick="addcover()"/>
+			<input type="button" name="cancel" value="取消" onclick="hidecovereditor()"/>
+			</div>
+		</fieldset>
+	</form>
+	</div>
+	<div id="addcoverresult"></div>
+	
+	</div>
+	</p>
+</BODY>
+</HTML>

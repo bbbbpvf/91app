@@ -1,0 +1,100 @@
+<?php
+session_start();
+
+//检测是否登录，若没登录则转向登录界面
+if(!isset($_SESSION['userid'])){
+    header("Location:login.html");
+    exit();
+}
+
+//包含数据库连接文件
+include('conn.php');
+?>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>applist</title>
+<script type="text/javascript" src="applist.js"></script>
+<script type="text/javascript">
+var currHref = location.href;
+var index = currHref.lastIndexOf("?");
+var param = "";
+if(index != "-1"){    param = currHref.substr(index+1);}
+getapplist();
+document.getElementById("coverid").value=param;
+</script>
+	<link rel="stylesheet" type="text/css" href="css/iframe.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/calendar.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/dashboard.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/i-heart-ny.css" media="screen" />
+</head>
+<BODY>
+<div id="applist"></div>
+	<div id="addapp"  style="display:none;">
+		<form>
+		<fieldset>
+			<legend>app</legend>
+			<div>
+			<div style="display:none;">
+			<label for="date">Date</label>
+			<input id="date" name="date" type="text" />
+			</div>
+			<div style="display:none;">
+			<label for="appid">id</label>
+			<input id="appid" name="appid" type="text" />
+			</div>
+			<div style="display:none;">
+			<label for="coverid">cid</label>
+			<input id="coverid" name="coverid" type="text" />
+			</div>
+			<div>
+			<div>
+			<label for="title">Title</label>
+			<input id="title" name="title" type="text" />
+			</div>
+			<div>
+			<label for="subtitle">SubTitle</label>
+			<input id="subtitle" name="subtitle" type="text" />
+			</div>
+			<div>
+			<label for="description">Description</label>
+			<input id="description" name="description" type="text" />
+			</div>
+			<div>
+			<label for="count">Count</label>
+			<input id="count" name="count" type="text" />
+			</div>
+			<div>
+			<label for="score">Score</label>
+			<input id="score" name="score" type="text" />
+			</div>
+			<div>
+			<label for="oldprice">OldPrice</label>
+			<input id="oldprice" name="oldprice" type="text" />
+			</div>
+			<div>
+			<label for="newprice">NewPrice</label>
+			<input id="newprice" name="newprice" type="text" />
+			</div>
+			<div>
+			<label for="url">Url</label>
+			<input id="url" name="url" type="text" />
+			</div>
+			<div>
+			<label for="photos">Photos</label>
+			<input id="photos" name="photos" type="text" />
+			<input type="button" name="upload" value="上传" onclick="showuploaddlg()"/>
+			</div>
+			<div>
+			<label for="flag">Flag</label>
+			<input id="flag" name="flag" type="text" />
+			</div>
+			<div>
+			<input type="button" name="submit" value="提交" onclick="addapp()"/>
+			<input type="button" name="cancel" value="取消" onclick="hideappeditor()"/>
+			</div>
+		</fieldset>
+	</form>
+	</div>
+</BODY>
+</HTML>

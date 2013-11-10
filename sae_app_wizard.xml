@@ -1,0 +1,9 @@
+<appwizard><introduction><name></name><author>91app</author><icon></icon><homepage></homepage><description><![CDATA[]]></description></introduction><platform><services><service></service><service>Mysql</service></services><appconfig><tpl><![CDATA[
+name: <<appname>>
+version: <<version>>
+#cron:
+#    - description: cron test
+#      url: index.php
+#      schedule: every 43 mins
+#      timezone: Beijing
+]]></tpl></appconfig></platform><code><initScript>index.php</initScript></code></appwizard>

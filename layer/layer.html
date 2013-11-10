@@ -1,0 +1,34 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+</head>
+<script>
+function Zhegai()
+{
+var windowWidth, windowHeight;
+if (self.innerHeight) { // all except Explorer
+windowWidth = self.innerWidth;
+windowHeight = self.innerHeight;
+} else if (document.documentElement && document.documentElement.clientHeight) { // Explorer 6 Strict Mode
+windowWidth = document.documentElement.clientWidth;
+windowHeight = document.documentElement.clientHeight;
+} else if (document.body) { // other Explorers
+windowWidth = document.body.clientWidth;
+windowHeight = document.body.clientHeight;
+}
+document.getElementById("bodydiv").style.width=windowWidth+"px";
+document.getElementById("bodydiv").style.height=windowHeight+"px";
+document.getElementById("bodydiv").style.display="";
+}
+function noZhegai()
+{
+document.getElementById("bodydiv").style.display="none";
+}
+</script>
+<body>
+<div id="bodydiv" style="filter:alpha(opacity=30); background:#999999; top:0px; left:0px; position:absolute; margin:0px; display:none;" > <a onclick="noZhegai();">取消锁定</a>
+  </div>
+<a onclick="Zhegai();">锁定</a>
+</body>
+</html>
